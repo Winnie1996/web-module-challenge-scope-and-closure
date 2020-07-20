@@ -27,11 +27,16 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ * Counter 1 - Keeping track of count inside of a function 
+ * Counter 2 - Counting outside of a function 
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ * Counter 1 - It takes a function from the outside aka counterMaker
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *Based on the code counter1 would be preferable if you want to stricly need to keep track of many counters while counter 2 is global and just keeps track of 1. 
+ C1 cant access the count directly 
+ C2 can access count but needs a new variable and function to keep track of it 
 */
 
 // counter1 code
@@ -56,9 +61,9 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
+function inning(score){
+  return Math.round(Math.random()*3);
+ 
 
 }
 
@@ -76,12 +81,20 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
 
-  /*Code Here*/
+function finalScore(inning, numInnings){
+  const object = {
+    Home: 0,
+    Away: 0,
+  }
+for (let i = 0; i < numInnings; i++) {
+  object.Home += inning();
+  object.Away += inning();
+}
+  return object;
 
 }
-
+console.log(finalScore(inning,9))
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
@@ -103,8 +116,42 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+function scoreboard(callback, numInn) {
+
+  let gameScore = {Home: 0, Away: 0};
+
+  for(let i = 1; i<=numInn; i++) {
+    let home = callback();
+    let away = callback();
+
+    gameScore.Home+=home;
+    gameScore.Away+=away;
+
+    // function within the loop to go take 
+    function getInningScore(){
+      if(i===1){
+        return `${i}st inning: ${gameScore.Home} - ${gameScore.Away}`;
+      }
+      else if(i===2){
+        return `${i}nd inning: ${gameScore.Home} - ${gameScore.Away}`;
+      }
+      else if(i===3){
+        return `${i}rd inning: ${gameScore.Home} - ${gameScore.Away}`;
+      }
+      else {
+        return `${i}th inning: ${gameScore.Home} - ${gameScore.Away}`;
+      } 
+    }
+
+    console.log(getInningScore());
+  }
+
+
+
+  return `Final Inning Score: ${gameScore.Home} - ${gameScore.Away}`;
+
+ }
+
+console.log(scoreboard(inning, 9));
 
 

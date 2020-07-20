@@ -41,7 +41,7 @@ Find the file `index.js` and complete the tasks.
 
 Edit the `ReadMe` file with your answers.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences). // Closures are functions within functions or closures are functions that come from parents that we can use.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -62,9 +62,9 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+a. Where is closure used in this code? How can you tell? personalDice because it's being declared
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change? the 'roll a' string will always be the same the numbers will be different because of math.floor and math.random
+c. What is the lexical scope of `newRoll`? the return function 
 
 ### Task 2c - Exit Ticket
 
@@ -108,6 +108,6 @@ addSix(21); // returns 27
 
 Follow these steps for completing your project.
 
-- [ ] Submit a pull request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
-- [ ] Add your Team Lead as a reviewer on the pull request
-- [ ] Your Team Lead will count the project as complete by merging the branch back into master
+- [X] Submit a pull request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
+- [X] Add your Team Lead as a reviewer on the pull request
+- [X] Your Team Lead will count the project as complete by merging the branch back into master
